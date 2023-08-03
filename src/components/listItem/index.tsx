@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ListItemType } from "../../types/listTypes";
 import useList from "../../hooks/useList";
-import { Checkbox } from "../ui/checkbox";
 import { Button } from "../ui/button";
 import { Trash2, ArrowRight } from "lucide-react";
 import { Toggle } from "../ui/toggle";
