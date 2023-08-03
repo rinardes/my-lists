@@ -12,6 +12,7 @@ export interface ContextType {
   toogleItemisBuyDone: (item: ListItemType) => void;
   createList: (list: ListType) => void;
   resetAllItems: () => void;
+  thereIsAValidList: () => boolean;
 }
 
 const ListContext = createContext<ContextType | undefined>(undefined);
@@ -44,6 +45,27 @@ const ListProvider = ({ children }: { children: ReactNode }) => {
     };
     setList(newListWithoutItem);
     DBOperations.updatedList(newListWithoutItem);
+  };
+
+  const thereIsAValidList = () => {
+    if (!userLists) return false;
+    else {
+      if (userLists.length == 0) return false;
+      if (userLists[0].name == "") {
+        removeListsWithoutName();
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const removeListsWithoutName = () => {
+    DBOperations.getAllLists().then((l) => {
+      let filteredList = l.filter((i) => {
+        return i.name == "";
+      });
+      filteredList.forEach((l) => DBOperations.deleteList(l));
+    });
   };
 
   const createList = (list: ListType) => {
@@ -105,6 +127,7 @@ const ListProvider = ({ children }: { children: ReactNode }) => {
         userLists,
         createList,
         resetAllItems,
+        thereIsAValidList,
       }}
     >
       {children}

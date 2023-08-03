@@ -45,10 +45,10 @@ export default function AddItemToListModal({
             toogleshowModal();
           }}
         >
-          X
+          Cancelar
         </Button>
         <Button className="" onClick={insertNewItem}>
-          +
+          Adicionar
         </Button>
       </div>
     </div>

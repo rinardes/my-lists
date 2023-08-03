@@ -61,6 +61,21 @@ export async function createList(list: ListType): Promise<number> {
   });
 }
 
+export async function deleteList(list: ListType): Promise<void> {
+  let request = indexedDB.open(dbName, dbVersion);
+  return new Promise((res) => {
+    request.onsuccess = (e) => {
+      let db: IDBDatabase = (e.target! as IDBOpenDBRequest).result;
+      let store = db.transaction("lists", "readwrite").objectStore("lists");
+      let putRequest = store.delete(list.id!);
+      putRequest.onsuccess = () => {
+        res();
+      };
+      db.close();
+    };
+  });
+}
+
 export async function getAllLists() {
   return new Promise<ListsType>((resolve, reject) => {
     openDataBase().then((db) => {
@@ -71,7 +86,8 @@ export async function getAllLists() {
           .transaction("lists", "readonly")
           .objectStore("lists");
         listsStore.getAll().onsuccess = (e) => {
-          resolve((e.target! as IDBRequest).result);
+          let result = (e.target! as IDBRequest).result;
+          resolve(result);
         };
       }
     });

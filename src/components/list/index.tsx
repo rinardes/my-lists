@@ -7,6 +7,7 @@ import AddItemToListModal from "../AddItemToListModal";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import ClearListDialog from "../clearListAlert";
+import { Plus, ScrollText } from "lucide-react";
 
 export default function List() {
   const { list, resetAllItems } = useList();
@@ -67,17 +68,22 @@ export default function List() {
           className=" flex items-center gap-2 cursor-pointer"
           onClick={toggleShowModal}
         >
-          <Button className="rounded-full">+</Button>
-          <p>Novo Item</p>
+          <Button className="rounded-full" size={"icon"}>
+            <Plus />
+          </Button>
+          <p>Adicionar Novo Item</p>
         </div>
       )}
       <div className="absolute bottom-8 right-4 flex flex-col gap-4">
         {isBuyList && <ClearListDialog concludeBuy={concludeBuy} />}
         <Button
           disabled={!canGoToBuyList()}
-          className="rounded-full p-8"
+          className="rounded-full"
           onClick={toggleBuyList}
-        ></Button>
+          size={"icon"}
+        >
+          <ScrollText />
+        </Button>
       </div>
     </div>
   );

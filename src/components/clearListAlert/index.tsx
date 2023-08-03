@@ -10,6 +10,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "../ui/button";
+import { ListChecks } from "lucide-react";
 
 interface Props {
   concludeBuy: () => void;
@@ -19,8 +20,10 @@ export default function ClearListDialog({ concludeBuy }: Props) {
   return (
     <div>
       <AlertDialog>
-        <AlertDialogTrigger>
-          <div className="p-8 bg-sky-400 rounded-full"></div>
+        <AlertDialogTrigger asChild>
+          <Button className="rounded-full" size={"icon"}>
+            <ListChecks />
+          </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

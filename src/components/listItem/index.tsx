@@ -3,6 +3,8 @@ import { ListItemType } from "../../types/listTypes";
 import useList from "../../hooks/useList";
 import { Checkbox } from "../ui/checkbox";
 import { Button } from "../ui/button";
+import { Trash2, ArrowRight } from "lucide-react";
+import { Toggle } from "../ui/toggle";
 
 interface Props {
   item: ListItemType;
@@ -27,13 +29,22 @@ export default function ListItem({ item }: Props) {
       <div>{item.name}</div>
       <div className="flex gap-2 items-center h-8">
         <Button onClick={removeItem} variant={"outline"} className="p-4 ">
-          X
+          <Trash2 />
         </Button>
-        <Checkbox
+        <Toggle
+          onPressedChange={toogleChange}
+          variant="outline"
+          aria-label="Toggle italic"
+          pressed={toogleStatus}
+          className="data-[state=on]:bg-sky-400"
+        >
+          <ArrowRight />
+        </Toggle>
+        {/* <Checkbox
           className=""
           checked={toogleStatus}
           onCheckedChange={toogleChange}
-        />
+        /> */}
       </div>
     </div>
   );
