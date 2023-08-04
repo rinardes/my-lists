@@ -13,7 +13,9 @@ export default function ListCreation() {
   const [isInvalidName, setIsInvalidName] = useState<null | boolean>(null);
 
   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
+    let newName = e.target.value;
+    nameValidation(newName);
+    setName(newName);
   };
 
   const createNewList = () => {
@@ -30,8 +32,8 @@ export default function ListCreation() {
     return true;
   };
 
-  const nameValidation = () => {
-    let verifiedString = name.trim();
+  const nameValidation = (newName: string) => {
+    let verifiedString = newName.trim();
     if (verifiedString.length == 0) {
       setIsInvalidName(true);
       return;
@@ -52,12 +54,7 @@ export default function ListCreation() {
           <CardTitle>Escolha um nome para sua lista</CardTitle>
         </CardHeader>
         <CardContent className="">
-          <Input
-            type="text"
-            value={name}
-            onChange={onChangeName}
-            onBlur={nameValidation}
-          />
+          <Input type="text" value={name} onChange={onChangeName} />
           <div
             className={twMerge(
               "mt-2 items-center gap-2 text-red-600 hidden text-sm",
