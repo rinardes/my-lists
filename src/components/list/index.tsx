@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import ClearListDialog from "../clearListAlert";
 import { Plus, ScrollText } from "lucide-react";
+import ListChoice from "../listChoice";
 
 export default function List() {
   const { list, resetAllItems } = useList();
@@ -35,9 +36,9 @@ export default function List() {
 
   return (
     <div className="mx-8">
-      <div className="flex justify-center h-5 items-center mb-4 ">
+      <div className="flex justify-center gap-2 h-5 items-center mb-4 ">
         <h1 className="leading-none text-2xl">{list.name}</h1>
-        {/* <ListChoice /> */}
+        <ListChoice />
       </div>
       <h2 className="mb-6 text-center">
         {isBuyList ? "Lista de Compras" : "Lista Geral"}

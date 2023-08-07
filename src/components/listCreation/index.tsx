@@ -79,6 +79,7 @@ export default function ListCreation() {
             <div>
               <Button
                 onClick={cancelListCreation}
+                variant={"outline"}
                 className={!canCancel() ? "hidden" : "block"}
               >
                 Cancelar

@@ -44,11 +44,6 @@ export default function ListItem({ item }: Props) {
         >
           <ArrowRight size={14} />
         </Toggle>
-        {/* <Checkbox
-          className=""
-          checked={toogleStatus}
-          onCheckedChange={toogleChange}
-        /> */}
       </div>
     </div>
   );

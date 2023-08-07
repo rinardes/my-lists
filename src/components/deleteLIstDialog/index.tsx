@@ -21,13 +21,15 @@ export default function DeleteListDialog({ deleteList }: Props) {
     <div>
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button className="rounded-full" size={"icon"}>
-            <Trash2 />
+          <Button className="h-8 w-8" variant={"outline"} size={"icon"}>
+            <Trash2 size={14} />
           </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Sua lista será Deletada!</AlertDialogTitle>
+            <AlertDialogTitle className="">
+              Sua lista será Deletada!
+            </AlertDialogTitle>
             <AlertDialogDescription>
               Essa ação irá deletar sua lista definitivamente e é irreversível.
               Deseja continuar?
