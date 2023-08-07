@@ -30,7 +30,7 @@ export default function AddItemToListModal({
   };
 
   return (
-    <div className="">
+    <div className="text-sm">
       <div className="mb-2">
         <Input
           placeholder="Insira o nome do item"

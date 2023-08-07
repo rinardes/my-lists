@@ -25,19 +25,24 @@ export default function ListItem({ item }: Props) {
 
   return (
     <div className="flex justify-between items-center">
-      <div>{item.name}</div>
+      <div className="text-sm">{item.name}</div>
       <div className="flex gap-2 items-center h-8">
-        <Button onClick={removeItem} variant={"outline"} className="p-4 ">
-          <Trash2 />
+        <Button
+          onClick={removeItem}
+          size="icon"
+          className="h-8 w-8"
+          variant={"outline"}
+        >
+          <Trash2 size={14} />
         </Button>
         <Toggle
           onPressedChange={toogleChange}
           variant="outline"
           aria-label="Toggle italic"
           pressed={toogleStatus}
-          className="data-[state=on]:bg-sky-400"
+          className="data-[state=on]:bg-foreground data-[state=on]:text-white h-8 w-8 p-0"
         >
-          <ArrowRight />
+          <ArrowRight size={14} />
         </Toggle>
         {/* <Checkbox
           className=""
