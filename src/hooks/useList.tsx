@@ -13,6 +13,7 @@ const useList = () => {
     createList,
     resetAllItems,
     thereIsAValidList,
+    deleteList,
   } = useContext(ListContext) as ContextType;
 
   return {
@@ -26,6 +27,7 @@ const useList = () => {
     createList,
     resetAllItems,
     thereIsAValidList,
+    deleteList,
   };
 };
 

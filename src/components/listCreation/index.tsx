@@ -1,16 +1,23 @@
 import { useState } from "react";
 import useList from "../../hooks/useList";
 import { ListType } from "../../types/listTypes";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { AlertCircle } from "lucide-react";
 import { twMerge } from "tailwind-merge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
 
 export default function ListCreation() {
   const [name, setName] = useState("");
   const { createList, thereIsAValidList } = useList();
   const [isInvalidName, setIsInvalidName] = useState<null | boolean>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     let newName = e.target.value;
@@ -21,10 +28,11 @@ export default function ListCreation() {
   const createNewList = () => {
     let newList: ListType = { name: name, value: [] };
     createList(newList);
+    setIsOpen(false);
   };
 
   const cancelListCreation = () => {
-    console.log("canceling");
+    setIsOpen(false);
   };
 
   const canCancel = () => {
@@ -49,11 +57,14 @@ export default function ListCreation() {
 
   return (
     <div>
-      <Card className="">
-        <CardHeader>
-          <CardTitle>Escolha um nome para sua lista</CardTitle>
-        </CardHeader>
-        <CardContent className="">
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogTrigger asChild>
+          <Button>Criar</Button>
+        </DialogTrigger>
+        <DialogContent className="">
+          <DialogHeader>
+            <DialogTitle>Escolha um nome para sua lista</DialogTitle>
+          </DialogHeader>
           <Input type="text" value={name} onChange={onChangeName} />
           <div
             className={twMerge(
@@ -64,21 +75,21 @@ export default function ListCreation() {
             <AlertCircle className="h-4 w-4" />
             <p>Nome de lista Inválido</p>
           </div>
-        </CardContent>
-        <CardContent className="flex justify-between">
-          <div>
-            <Button
-              onClick={cancelListCreation}
-              className={!canCancel() ? "hidden" : "block"}
-            >
-              Cancelar
+          <div className="flex justify-between">
+            <div>
+              <Button
+                onClick={cancelListCreation}
+                className={!canCancel() ? "hidden" : "block"}
+              >
+                Cancelar
+              </Button>
+            </div>
+            <Button onClick={createNewList} disabled={!canCreateList()}>
+              Criar
             </Button>
           </div>
-          <Button onClick={createNewList} disabled={!canCreateList()}>
-            Criar
-          </Button>
-        </CardContent>
-      </Card>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

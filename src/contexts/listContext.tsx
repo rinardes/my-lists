@@ -13,6 +13,7 @@ export interface ContextType {
   createList: (list: ListType) => void;
   resetAllItems: () => void;
   thereIsAValidList: () => boolean;
+  deleteList: (list: ListType) => void;
 }
 
 const ListContext = createContext<ContextType | undefined>(undefined);
@@ -57,6 +58,15 @@ const ListProvider = ({ children }: { children: ReactNode }) => {
       }
     }
     return true;
+  };
+
+  const deleteList = (list: ListType) => {
+    //Delete and update list
+    DBOperations.deleteList(list).then(() => {
+      DBOperations.getAllLists().then((l) => {
+        setUserLists(l);
+      });
+    });
   };
 
   const removeListsWithoutName = () => {
@@ -128,6 +138,7 @@ const ListProvider = ({ children }: { children: ReactNode }) => {
         createList,
         resetAllItems,
         thereIsAValidList,
+        deleteList,
       }}
     >
       {children}
