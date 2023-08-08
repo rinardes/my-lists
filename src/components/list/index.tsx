@@ -78,7 +78,7 @@ export default function List() {
           <p>Adicionar Novo Item</p>
         </div>
       )}
-      <div className="fixed bottom-8 right-4 flex flex-col gap-4">
+      <div className="absolute bottom-8 right-4 flex flex-col gap-4">
         {isBuyList && <ClearListDialog concludeBuy={concludeBuy} />}
         <Button
           disabled={!canGoToBuyList()}

@@ -27,16 +27,16 @@ export default function ClearListDialog({ concludeBuy }: Props) {
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Tem certeza que quer concluir?</AlertDialogTitle>
+            <AlertDialogTitle>Concluir lista de compras?</AlertDialogTitle>
             <AlertDialogDescription>
-              Essa ação removera todos os itens da sua lista de compras e é
-              irreversível.
+              Isso removerá todos os items dessa lista de compras, mas eles
+              continuarão na lista geral.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancelar</AlertDialogCancel>
             <AlertDialogAction asChild>
-              <Button onClick={concludeBuy}>Continuar</Button>
+              <Button onClick={concludeBuy}>Concluir</Button>
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
