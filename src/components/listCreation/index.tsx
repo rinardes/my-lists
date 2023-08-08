@@ -65,7 +65,14 @@ export default function ListCreation() {
           <DialogHeader>
             <DialogTitle>Escolha um nome para sua lista</DialogTitle>
           </DialogHeader>
-          <Input type="text" value={name} onChange={onChangeName} />
+          <Input
+            type="text"
+            value={name}
+            onKeyDown={(e) => {
+              if (e.key == "Enter") createNewList();
+            }}
+            onChange={onChangeName}
+          />
           <div
             className={twMerge(
               "mt-2 items-center gap-2 text-red-600 hidden text-sm",

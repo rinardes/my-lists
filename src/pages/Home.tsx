@@ -1,6 +1,6 @@
+import FirstListCreation from "@/components/firstListCreation";
 import List from "../components/list";
 import useList from "../hooks/useList";
-import FirstListCreation from "@/components/firstListCreation";
 
 export default function Home() {
   const { thereIsAValidList } = useList();

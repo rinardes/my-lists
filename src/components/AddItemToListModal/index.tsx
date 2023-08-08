@@ -38,6 +38,9 @@ export default function AddItemToListModal({
           value={name}
           onChange={onNameChange}
           autoFocus
+          onKeyDown={(e) => {
+            if (e.key == "Enter") insertNewItem();
+          }}
         />
       </div>
       <div className="flex justify-end gap-4">
