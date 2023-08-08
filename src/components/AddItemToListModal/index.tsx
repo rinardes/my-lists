@@ -30,13 +30,14 @@ export default function AddItemToListModal({
   };
 
   return (
-    <div className="text-sm">
+    <div className="text-sm mb-16 py-4">
       <div className="mb-2">
         <Input
           placeholder="Insira o nome do item"
           type="text"
           value={name}
           onChange={onNameChange}
+          autoFocus
         />
       </div>
       <div className="flex justify-end gap-4">

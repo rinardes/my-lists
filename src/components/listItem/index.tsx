@@ -24,8 +24,8 @@ export default function ListItem({ item }: Props) {
   };
 
   return (
-    <div className="flex justify-between items-center">
-      <div className="text-sm">{item.name}</div>
+    <div className="flex justify-between pt-2 items-center">
+      <div className="pl-4 text-sm">{item.name}</div>
       <div className="flex gap-2 items-center h-8">
         <Button
           onClick={removeItem}

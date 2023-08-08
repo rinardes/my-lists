@@ -40,7 +40,7 @@ export default function ListChoice() {
             {userLists?.map((l) => {
               return (
                 <div key={l.id}>
-                  <div className="flex gap-8 items-center ">
+                  <div className="flex gap-8 items-center py-2 ">
                     <Button
                       onClick={() => {
                         changeList(l);

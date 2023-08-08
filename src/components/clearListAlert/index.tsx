@@ -21,7 +21,7 @@ export default function ClearListDialog({ concludeBuy }: Props) {
     <div>
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button className="rounded-full" size={"icon"}>
+          <Button className=" h-14 w-14 rounded-full" size={"icon"}>
             <ListChecks />
           </Button>
         </AlertDialogTrigger>

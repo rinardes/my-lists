@@ -35,7 +35,7 @@ export default function List() {
   };
 
   return (
-    <div className="mx-8">
+    <div className="last:mb-16">
       <div className="flex justify-center gap-2 h-5 items-center mb-4 ">
         <h1 className="leading-none text-2xl">{list.name}</h1>
         <ListChoice />
@@ -47,7 +47,7 @@ export default function List() {
         {list.name &&
           list.value.map((i: ListItemType) => {
             return (
-              <div className="mb-4" key={i.name}>
+              <div className="" key={i.name}>
                 {isBuyList ? (
                   i.addedToBuyList && (
                     <div>
@@ -69,7 +69,7 @@ export default function List() {
         <AddItemToListModal toogleshowModal={toggleShowModal} />
       ) : (
         <div
-          className=" flex   items-center gap-2 text-sm cursor-pointer"
+          className=" flex mt-2 items-center gap-2 text-sm cursor-pointer"
           onClick={toggleShowModal}
         >
           <Button className="rounded-full h-6 w-6 " size={"icon"}>
@@ -78,11 +78,11 @@ export default function List() {
           <p>Adicionar Novo Item</p>
         </div>
       )}
-      <div className="absolute bottom-8 right-4 flex flex-col gap-4">
+      <div className="fixed bottom-8 right-4 flex flex-col gap-4">
         {isBuyList && <ClearListDialog concludeBuy={concludeBuy} />}
         <Button
           disabled={!canGoToBuyList()}
-          className="rounded-full"
+          className=" h-14 w-14 rounded-full"
           onClick={toggleBuyList}
           size={"icon"}
         >

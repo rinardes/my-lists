@@ -18,7 +18,7 @@ export default function ListItemOnBuy({ item }: Props) {
 
   return (
     <div className="flex justify-between text-sm items-center">
-      <div>{item.name}</div>
+      <div className="pl-4 py-2">{item.name}</div>
       <div className="flex items-center h-8">
         <Checkbox
           className=""

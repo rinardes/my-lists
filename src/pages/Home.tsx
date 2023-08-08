@@ -6,7 +6,7 @@ export default function Home() {
   const { thereIsAValidList } = useList();
 
   return (
-    <div className="max-w-3xl pt-8 min-h-screen relative px-4 mx-auto">
+    <div className="max-w-3xl pt-8 min-h-screen relative pl-4 pr-6 mx-auto">
       {thereIsAValidList() ? (
         <List />
       ) : (
