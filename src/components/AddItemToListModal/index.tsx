@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useList from "../../hooks/useList";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -30,6 +30,10 @@ export default function AddItemToListModal({
     setName("");
   };
 
+  useEffect(() => {
+    newItemRef.current?.scrollIntoView();
+  }, [newItemRef]);
+
   return (
     <div className="text-sm mb-16 h-[50vh] py-4">
       <div className="mb-2">
@@ -40,9 +44,6 @@ export default function AddItemToListModal({
           value={name}
           onChange={onNameChange}
           autoFocus
-          onFocus={() => {
-            newItemRef?.current?.scrollIntoView();
-          }}
           onKeyDown={(e) => {
             if (e.key == "Enter") insertNewItem();
           }}
