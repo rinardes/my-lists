@@ -35,10 +35,16 @@ export default function List() {
   };
 
   return (
-    <div className="last:mb-16">
+    <div className="last:mb-24">
       <div className="flex justify-center gap-2 h-5 items-center mb-4 ">
         <h1 className="leading-none text-2xl">{list.name}</h1>
-        <ListChoice />
+        <div
+          onClick={() => {
+            setIsBuyList(false);
+          }}
+        >
+          <ListChoice />
+        </div>
       </div>
       <h2 className="mb-6 text-center">
         {isBuyList ? "Lista de Compras" : "Lista Geral"}
@@ -68,14 +74,28 @@ export default function List() {
       {isBuyList ? null : showAddToItemListModal ? (
         <AddItemToListModal toogleshowModal={toggleShowModal} />
       ) : (
-        <div
-          className=" flex mt-2 items-center gap-2 text-sm cursor-pointer"
-          onClick={toggleShowModal}
-        >
-          <Button className="rounded-full h-6 w-6 " size={"icon"}>
-            <Plus className="h-[14px] w-[14px] " />
-          </Button>
-          <p>Adicionar Novo Item</p>
+        <div className="text-sm">
+          <div>
+            <div
+              className=" flex mt-2 items-center gap-2 cursor-pointer"
+              onClick={toggleShowModal}
+            >
+              <Button className="rounded-full h-6 w-6 " size={"icon"}>
+                <Plus className="h-[14px] w-[14px] " />
+              </Button>
+              <p>Adicionar Novo Item</p>
+            </div>
+          </div>
+          {list.value.length != 0 ? (
+            <p className="mt-4 italic text-sm opacity-80">
+              Para enviar o item para a lista de compras, basta clicar na seta.
+            </p>
+          ) : (
+            <p className="italic opacity-80 mt-4">
+              Está é sua lista geral, você criará suas listas de compras a
+              partir dela. Adicione um novo item para começar.
+            </p>
+          )}
         </div>
       )}
       <div className="fixed  bottom-8 right-4 flex flex-col gap-4">
