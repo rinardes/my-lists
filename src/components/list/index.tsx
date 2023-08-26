@@ -92,7 +92,7 @@ export default function List() {
             </p>
           ) : (
             <p className="italic opacity-80 mt-4">
-              Está é sua lista geral, você criará suas listas de compras a
+              Esta é sua lista geral, você criará suas listas de compras a
               partir dela. Adicione um novo item para começar.
             </p>
           )}

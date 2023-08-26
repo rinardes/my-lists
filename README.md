@@ -1,27 +1,29 @@
-# React + TypeScript + Vite
+# My Lists
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Crie suas listas a partir de outras listas e pare de perder tempo!
 
-Currently, two official plugins are available:
+## Use Case
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Imagine que você precise criar uma lista de compras.  
+Uma mera checklist já resolveria, afinal, você não quer esquecer de nada importante.  
+Porém, imagino que quando você vai ao mercado, você frequentemente faz uma verificação de quais items você precisa comprar.  
+E que esses items tendem a se repetir durante suas idas ao mercado.  
+Logo, se torna não apenas repetitivo ficar refazendo a mesma lista, com as mesmas coisas, de novo e de novo, como também você pode acabar esquecendo de adicionar algo.  
+A ideia desse app é que você cria suas listas de compras a partir de uma lista geral, evitando que você fique se repetindo ou esquecendo das coisas. E quando precisar adicionar algo novo, basta adicionar à sua lista geral.
+Assim, tanto você não se repete, como também tem ali um invetário já pronto para você se lembrar de quais items você geralmente compra.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Criar lista geral
+- Criar lista de compras
+- Ter múltiplas listas
+- Persistência local
+- Multiplataforma
 
-- Configure the top-level `parserOptions` property like this:
+## Stack utilizada
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React, vite
+- TailwindCSS
+- shadcn
+- Typescript
+- IndexedDB
